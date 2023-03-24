@@ -36,8 +36,9 @@
             android:background="#fff"
             android:fontFamily="sans-serif"
             android:hint="@string/input_package_name"
-            android:maxHeight="40dp"
-            android:minHeight="40dp"
+            android:inputType="text"
+            android:maxHeight="48dp"
+            android:minHeight="48dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:textSize="15sp" />

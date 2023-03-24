@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etInput;
     private TextView tvShow;
-    private TextView github;
     private Button btnCopy;
 
     @Override
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         etInput = findViewById(R.id.et);
         tvShow = findViewById(R.id.tv);
         btnCopy = findViewById(R.id.btn_copy);
-        github = findViewById(R.id.github);
+        TextView github = findViewById(R.id.github);
 
         github.setOnClickListener(v -> {
             String url = "https://github.com/flutterbest/GenSignature.git"; // 替换为您想要打开的网址
@@ -50,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();//获得上个界面传过来的数据
         if (intent.hasExtra("packageName")) {
             etInput.setText(intent.getStringExtra("packageName"));
+            genSign();
         }
     }
 
@@ -61,18 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_gen:
-                String input = etInput.getText().toString().trim();
-                if (TextUtils.isEmpty(input)) {
-                    Toast.makeText(MainActivity.this, "请填写正确包名!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                String sign = gen(input);
-                if (TextUtils.isEmpty(sign)) {
-                    btnCopy.setVisibility(View.INVISIBLE);
-                    return;
-                }
-                tvShow.setText(sign);
-                btnCopy.setVisibility(View.VISIBLE);
+                genSign();
                 break;
             case R.id.btn_copy:
                 copyStr(tvShow.getText().toString());
@@ -81,6 +70,24 @@ public class MainActivity extends AppCompatActivity {
             default:
 
         }
+    }
+
+    /**
+     * 获取签名
+     */
+    private void genSign() {
+        String input = etInput.getText().toString().trim();
+        if (TextUtils.isEmpty(input)) {
+            Toast.makeText(MainActivity.this, "请填写正确包名!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String sign = gen(input);
+        if (TextUtils.isEmpty(sign)) {
+            btnCopy.setVisibility(View.INVISIBLE);
+            return;
+        }
+        tvShow.setText(sign);
+        btnCopy.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -99,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(MainActivity.this, "获取失败!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "签名获取失败", Toast.LENGTH_SHORT).show();
         }
         return sign;
     }
@@ -110,6 +117,6 @@ public class MainActivity extends AppCompatActivity {
     private void copyStr(String str) {
         ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         cm.setPrimaryClip(ClipData.newPlainText("", str));
-        Toast.makeText(MainActivity.this, "复制成功!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "签名复制成功", Toast.LENGTH_SHORT).show();
     }
 }

@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -98,7 +99,6 @@ public class AppActivity extends AppCompatActivity {
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
-                        System.out.println("=============" + newText);
                         // 处理搜索文本变化事件
                         adapter.getFilter().filter(newText);
                         return true;
@@ -185,8 +185,6 @@ public class AppActivity extends AppCompatActivity {
                             }
                         }
                     }
-
-                    System.out.println("=========" + filteredList.size());
                     FilterResults results = new FilterResults();
                     results.values = filteredList;
                     results.count = filteredList.size();
@@ -197,7 +195,6 @@ public class AppActivity extends AppCompatActivity {
                 @Override
                 protected void publishResults(CharSequence constraint, FilterResults results) {
                     filteredAppList = (List<AppInfo>) results.values;
-
                     notifyDataSetChanged();
                 }
             };
@@ -221,7 +218,7 @@ public class AppActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AppInfo appInfo = (AppInfo) view.getTag();
-                Toast.makeText(AppActivity.this, "选择了：" + appInfo.getAppName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "选择了：" + appInfo.getAppName(), Toast.LENGTH_SHORT).show();
                 //传值
                 Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra("packageName", appInfo.getPackageName());
@@ -231,8 +228,6 @@ public class AppActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }
 
 
