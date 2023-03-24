@@ -1,6 +1,5 @@
-# APK签名获取工具,
-
-支持一键复制和选择应用
+# APK签名获取工具
+支持一键复制和手动选择应用查询
 
 [Apk下载](https://github.com/flutterbest/GenSignature/raw/master/raw/app-release.apk)
 
@@ -8,6 +7,6 @@
 
 # 效果图
 
-![效果图](./raw/screenshot1.png)
+![效果图](./raw/screenshot1.jpeg)
 
-![效果图](./raw/screenshot2.png)
+![效果图](./raw/screenshot2.jpeg)
