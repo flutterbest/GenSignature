@@ -103,10 +103,12 @@ public class MainActivity extends AppCompatActivity {
                 BigInteger bigInteger = new BigInteger(1, digest.digest());
                 sign = bigInteger.toString(16);
                 Log.d("msg", "获取到包名 " + packageName + " 下的签名为: " + sign);
+                Toast.makeText(MainActivity.this, "签名获取成功", Toast.LENGTH_LONG).show();
+
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(MainActivity.this, "签名获取失败", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "签名获取失败", Toast.LENGTH_LONG).show();
         }
         return sign;
     }
