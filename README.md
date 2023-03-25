@@ -7,6 +7,5 @@
 
 # 效果图
 
-![效果图](./raw/screenshot1.jpeg)
+![效果图](./raw/screenshot.jpeg)
 
-![效果图](./raw/screenshot2.jpeg)

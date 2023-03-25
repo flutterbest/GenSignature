@@ -15,13 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="cn.kuaicode.gensignature.AppActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name="cn.kuaicode.gensignature.MainActivity"
             android:exported="true">
             <intent-filter>

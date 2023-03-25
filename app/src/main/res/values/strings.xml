@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">GenSignature</string>
-    <string name="info">此工具仅用于获取安装到手机的第三方应用签名，供开发者填写到官网进行调试。第三方应用签名正确性需有开发者自行保证。</string>
-    <string name="get_sign">获取签名</string>
-    <string name="select_app">选择应用</string>
     <string name="input_package_name">填写包名或者选择应用</string>
-    <string name="copy">复制签名</string>
     <string name="search_hint">输入应用名或包名搜索</string>
-    <string name="back_arrow">返回</string>
-    <string name="github">源码</string>
+    <string name="copy">复制</string>
+    <string name="cancel">取消</string>
 </resources>
